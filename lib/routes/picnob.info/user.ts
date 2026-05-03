@@ -118,7 +118,8 @@ async function handler(ctx) {
                     'x-api-key': INSTALKER_BACK_API_KEY,
                 },
             }),
-        config.cache.contentExpire
+        config.cache.routeExpire, // <-- CAMBIO APLICADO: Obtener avatar nuevo constantemente
+        false                     // <-- CAMBIO APLICADO: No usar caché estricta
     );
     const data = await cache.tryGet(
         `picnob.info:${type}:${id}`,
